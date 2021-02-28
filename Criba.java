@@ -17,15 +17,17 @@ public class Criba {
             int[] primos = rellenarConPrimos(dim, esPrimo, cuenta);
 
             return primos;
-        } else 
+        } else {
             return new int[0];
+        }
     }
 
     private static int[] rellenarConPrimos(int dim, boolean[] esPrimo, int cuenta) {
         int[] primos = new int[cuenta];
         for (int i = 0, j = 0; i < dim; i++) {
-            if (esPrimo[i])
+            if (esPrimo[i]){
                 primos[j++] = i;
+            }
         }
         return primos;
     }
@@ -33,8 +35,9 @@ public class Criba {
     private static int cuentaPrimos(int dim, boolean[] esPrimo) {
         int cuenta = 0;
         for (int i = 0; i < dim; i++) {
-            if (esPrimo[i])
+            if (esPrimo[i]){
                 cuenta++;
+            }
         }
         return cuenta;
     }
@@ -42,30 +45,34 @@ public class Criba {
     private static void criba(int dim, boolean[] esPrimo) {
         for (int i = 2; i < Math.sqrt(dim) + 1; i++) {
             if (esPrimo[i]) {
-                for (int j = 2 * i; j < dim; j += i)
+                for (int j = 2 * i; j < dim; j += i){
                     esPrimo[j] = false;
+                }
             }
         }
     }
 
     private static void iniciaArray(int dim, boolean[] esPrimo) {
-        for (int i = 0; i < dim; i++)
+        for (int i = 0; i < dim; i++){
             esPrimo[i] = true;
+        }
     }
 
 
     private static void muestraVectorPrimos(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
-            if (i % 10 == 0)
+            if (i % 10 == 0){
                 System.out.println();
+            }
             System.out.print(vector[i] + "\t");
         }
     }
 
     private static void muestraVectorInicial(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
-            if (i % 10 == 0)
+            if (i % 10 == 0){
                 System.out.println();
+            }
             System.out.print(i + 1 + "\t");
         }
     }
